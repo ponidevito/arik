@@ -1,0 +1,258 @@
+// ========================= [ Header styles ] =========================
+.header {
+  padding: 12px 12px 12px 24px;
+  background: lightgray -702.795px -116.917px / 246.575% 158.768% no-repeat;
+  mix-blend-mode: lighten;
+  border-radius: 2px;
+  border: 1px solid var(--border-default, rgba(218, 197, 167, 0.15));
+  background: var(--background-muted, rgba(218, 197, 167, 0.05));
+  /* blur/default */
+  backdrop-filter: blur(15px);
+  position: fixed;
+  left: 50%;
+  top: 48px;
+  z-index: 2;
+  transform: translate(-50%, 0px);
+  @include md {
+    width: 90%;
+  }
+  @include sm {
+    top: 20px;
+    padding: 12px;
+  }
+  &__container {
+    padding: 0;
+  }
+  &__btn {
+    margin-left: auto;
+  }
+
+  .submenu {
+    position: absolute;
+    z-index: 3;
+    background: #fff8e1;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    top: 20px;
+    right: 0;
+    // width: 250px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    background-color: rgba(218, 197, 167);
+    @include sm {
+      top: 40px;
+      width: 100%;
+    }
+    &.active {
+      background-color: rgba(218, 197, 167);
+      backdrop-filter: blur(15px);
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      z-index: 10;
+    }
+
+    &__item {
+      position: relative;
+
+      cursor: pointer;
+      transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+
+      &:first-child {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+      &:last-child {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+      &:hover {
+        background-color: #dfdfdf;
+      }
+
+      a {
+        color: #0e0e0e;
+        display: block;
+        padding: 12px;
+        @include sm {
+          font-size: 22px;
+        }
+      }
+    }
+  }
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  margin-right: 32px;
+  a {
+    color: white;
+  }
+}
+
+// ========================== [ Menu styles ] ==========================
+.menu {
+  display: flex;
+  gap: 20px;
+  padding-right: 16px;
+  @include md {
+    flex-wrap: wrap;
+    row-gap: 5px;
+  }
+  @include sm {
+    row-gap: 25px;
+  }
+
+  // .menu__item
+  &__item {
+    display: flex;
+    position: relative;
+    @include sm {
+      justify-content: flex-end;
+    }
+  }
+
+  // .menu__item-link
+  &__item-link {
+    font-family: Satoshi;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: $colorDefault;
+    display: flex;
+    position: relative;
+    transition: 0.5s color;
+    @include sm {
+      font-size: 25px;
+    }
+    &.with-icon {
+      align-items: center;
+      gap: 5px;
+      svg {
+        transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+        @include sm {
+          width: 12px;
+          height: 10px;
+        }
+      }
+       &.active svg {
+    transform: rotate(180deg);
+  }
+    }
+    &:after {
+      position: absolute;
+      content: "";
+      left: 0;
+      bottom: -3px;
+      background: $colorDefault;
+      height: 1px;
+      width: 100%;
+      transform: scale(0);
+      transition: 0.5s transform;
+
+      // Comment if you need border animation
+      // display: none;
+    }
+    &:hover {
+      // color: #131418;
+      &:after {
+        transform: scale(1);
+      }
+    }
+  }
+
+  // Mobile menu styles
+  @media screen and (max-width: $burgerBreakpoint) {
+    position: fixed;
+    background: #0e0e0e;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    display: none;
+
+    &.active {
+      display: flex;
+      right: 0;
+      top: 100px;
+      height: 100vh;
+      width: 100%;
+      flex-direction: column;
+      pointer-events: all;
+      align-content: flex-end;
+      z-index: 2;
+      animation: fade 0.1s linear;
+    }
+  }
+}
+
+// ========================= [ Burger styles ] =========================
+.burger {
+  display: none;
+  background: transparent;
+  z-index: 3;
+  @media screen and (max-width: $burgerBreakpoint) {
+    display: flex;
+    position: relative;
+    height: 20px;
+    min-width: 30px;
+    margin-left: 15px;
+    &.active {
+      &:before {
+        background: $colorDefault;
+        transform: rotate(45deg);
+        transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+        top: 8px;
+      }
+
+      &:after {
+        background: $colorDefault;
+        transform: rotate(-45deg);
+        bottom: 10px;
+        transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+      }
+
+      & span {
+        transform: scale(0);
+      }
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      background: $colorDefault;
+      transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+    }
+
+    &:before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+
+    span {
+      position: absolute;
+      top: 9px;
+      right: 0;
+      width: 100%;
+      background: $colorDefault;
+      height: 2px;
+      transform: scale(1);
+      transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+    }
+  }
+}

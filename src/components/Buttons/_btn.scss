@@ -1,0 +1,39 @@
+// buttons
+
+// btn
+.btn {
+  display: inline-flex;
+  padding: 10px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  //   text
+  font-family: Satoshi;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+}
+
+// btn-default
+.btn-default {
+  border-radius: 2px;
+  border: 1px solid var(--border-default, rgba(218, 197, 167, 0.15));
+  background: var(--background-muted, rgba(218, 197, 167, 0.05));
+  backdrop-filter: blur(15px);
+}
+
+// btn-white
+
+.btn-white {
+  border-radius: 2px;
+  background: $colorDefault;
+  color: #0e0e0e;
+  &:hover {
+    background-color: #dfdfdf;
+  }
+}

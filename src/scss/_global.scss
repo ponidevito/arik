@@ -1,0 +1,35 @@
+// Container
+// global container
+
+[class*="__container"] {
+  max-width: 1400px;
+  margin: 0px auto;
+  padding: 0px 15px;
+  box-sizing: content-box;
+}
+
+// Body & Locked
+body {
+    &.locked {
+        overflow: hidden;
+    }
+    // Dark mode styles
+    // &.dark {
+    //     background: #242424;
+    // }
+}
+
+
+
+
+// Animations
+// Fade
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

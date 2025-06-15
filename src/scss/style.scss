@@ -1,0 +1,43 @@
+// Global SCSS-files imports
+@import "./mixins";
+@import "./vars";
+@import "./reset";
+@import "./fonts";
+@import "./global";
+
+// Sections or Pages SCSS-files imports
+@import "./header";
+@import "./home";
+@import "./hero";
+
+
+// components
+@import "../components/Buttons/btn";
+// @import './footer';
+
+// Libs
+// @import './libs/swiper';
+
+html {
+  scroll-behavior: smooth;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: $fontMain;
+  font-weight: 400;
+  background: #0E0E0E;
+  color: $colorDefault;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.main {
+  flex: 1 1 auto;
+  position: relative;
+}
