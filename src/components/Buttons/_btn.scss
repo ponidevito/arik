@@ -37,3 +37,55 @@
     background-color: #dfdfdf;
   }
 }
+
+// Arrow up right
+.arrow-up-right {
+    position: relative;
+      text-decoration: none;
+  overflow: hidden;
+  transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+  font-family: Satoshi;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: $colorDefault;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  img {
+    transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+    border-radius: 50%;
+    border: 1px solid rgba(218, 197, 167, 0.15);
+    background: rgba(218, 197, 167, 0.05);
+    /* blur/default */
+    backdrop-filter: blur(15px);
+    padding: 7px;
+  }
+  &:hover img {
+    transform: rotate(45deg);
+  }
+}
+
+
+.arrow-up-right span {
+  position: relative;
+  display: inline-block;
+}
+
+.arrow-up-right span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 0;
+  background-color: currentColor; /* або конкретний колір, напр. #000 */
+  transition: width 0.3s ease;
+}
+
+.arrow-up-right:hover span::after {
+  width: 100%;
+}

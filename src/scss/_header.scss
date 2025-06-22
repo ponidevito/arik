@@ -4,8 +4,8 @@
   background: lightgray -702.795px -116.917px / 246.575% 158.768% no-repeat;
   mix-blend-mode: lighten;
   border-radius: 2px;
-  border: 1px solid var(--border-default, rgba(218, 197, 167, 0.15));
-  background: var(--background-muted, rgba(218, 197, 167, 0.05));
+  border: 1px solid rgba(218, 197, 167, 0.15);
+  background: rgba(218, 197, 167, 0.05);
   /* blur/default */
   backdrop-filter: blur(15px);
   position: fixed;
@@ -17,7 +17,9 @@
     width: 90%;
   }
   @include sm {
+    // top: 0px;
     top: 20px;
+    width: 100%;
     padding: 12px;
   }
   &__container {
@@ -37,14 +39,12 @@
     transition: opacity 0.3s ease, visibility 0.3s ease;
     top: 20px;
     right: 0;
-    // width: 250px;
     display: flex;
     flex-direction: column;
     border-radius: 5px;
     background-color: rgba(218, 197, 167);
     @include sm {
-      top: 40px;
-      width: 100%;
+      top: -185px;
     }
     &.active {
       background-color: rgba(218, 197, 167);
@@ -107,6 +107,9 @@
   }
   @include sm {
     row-gap: 25px;
+    padding-right: 0px;
+    flex-wrap: unset;
+    overflow-y: auto;
   }
 
   // .menu__item
@@ -144,9 +147,9 @@
           height: 10px;
         }
       }
-       &.active svg {
-    transform: rotate(180deg);
-  }
+      &.active svg {
+        transform: rotate(180deg);
+      }
     }
     &:after {
       position: absolute;
@@ -163,7 +166,6 @@
       // display: none;
     }
     &:hover {
-      // color: #131418;
       &:after {
         transform: scale(1);
       }
@@ -177,20 +179,24 @@
     left: 0;
     top: 0;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     display: none;
-
+    padding-top: 80px;
+    padding-right: 15px;
     &.active {
       display: flex;
       right: 0;
-      top: 100px;
+      top: 66px;
       height: 100vh;
       width: 100%;
       flex-direction: column;
       pointer-events: all;
       align-content: flex-end;
-      z-index: 2;
+      z-index: 5;
       animation: fade 0.1s linear;
+      .header {
+        mix-blend-mode: unset;
+      }
     }
   }
 }
@@ -199,7 +205,7 @@
 .burger {
   display: none;
   background: transparent;
-  z-index: 3;
+  z-index: 5;
   @media screen and (max-width: $burgerBreakpoint) {
     display: flex;
     position: relative;

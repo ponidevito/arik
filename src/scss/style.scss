@@ -9,7 +9,9 @@
 @import "./header";
 @import "./home";
 @import "./hero";
-
+@import "./logos";
+@import "./services";
+@import "./work";
 
 // components
 @import "../components/Buttons/btn";
@@ -27,7 +29,7 @@ body {
   width: 100%;
   font-family: $fontMain;
   font-weight: 400;
-  background: #0E0E0E;
+  background: #0e0e0e;
   color: $colorDefault;
 }
 

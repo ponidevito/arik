@@ -10,26 +10,25 @@
 
 // Body & Locked
 body {
-    &.locked {
-        overflow: hidden;
-    }
-    // Dark mode styles
-    // &.dark {
-    //     background: #242424;
-    // }
+  &.locked {
+    overflow: hidden;
+  }
+  // Dark mode styles
+  // &.dark {
+  //     background: #242424;
+  // }
 }
-
 
 
 
 // Animations
 // Fade
 @keyframes fade {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
