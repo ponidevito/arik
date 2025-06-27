@@ -40,8 +40,8 @@
 
 // Arrow up right
 .arrow-up-right {
-    position: relative;
-      text-decoration: none;
+  position: relative;
+  text-decoration: none;
   overflow: hidden;
   transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
   font-family: Satoshi;
@@ -69,7 +69,6 @@
   }
 }
 
-
 .arrow-up-right span {
   position: relative;
   display: inline-block;
@@ -88,4 +87,33 @@
 
 .arrow-up-right:hover span::after {
   width: 100%;
+}
+
+// Arrow down
+.arrow-down {
+  position: relative;
+  text-decoration: none;
+  overflow: hidden;
+  transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+  font-family: Satoshi;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: $colorDefault;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: transparent;
+  img {
+    transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+    border-radius: 50%;
+    border: 1px solid rgba(218, 197, 167, 0.15);
+    background: rgba(218, 197, 167, 0.05);
+    /* blur/default */
+    backdrop-filter: blur(15px);
+    padding: 7px;
+  }
 }
