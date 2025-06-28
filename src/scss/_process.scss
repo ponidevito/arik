@@ -1,8 +1,5 @@
 .process {
   padding: 80px 0px;
-  &__container {
-  }
-
   &__head {
     max-width: 710px;
     margin: 0 auto;
@@ -59,43 +56,22 @@
       margin-bottom: 48px;
     }
   }
-}
-
-.process {
-  &__container {
-  }
-
-  &__head {
-  }
-
-  &__abovetitle {
-  }
-
-  &__title {
-  }
-
-  &__undertitle {
-  }
 
   &__body {
     display: flex;
     position: relative;
     flex-direction: column;
+    // overflow: hidden;
     &::before {
       content: "";
       position: absolute;
       left: 50%;
       top: -96px;
       width: 1px;
-      height: 100%;
+      height: 96px;
       background: rgba(218, 197, 167, 0.15);
-      z-index: 0;
+      z-index: -1;
       transform: translate(-50%, 0%);
-    }
-
-    // Відображення останньої точки без лінії вниз (не обов’язково)
-    &:last-child::before {
-      // height: calc(100% - 10px);
     }
   }
 
@@ -107,52 +83,89 @@
     flex: 0 1 auto;
     width: 50%;
 
+    &:not(:last-child)::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: -96px;
+      width: 1px;
+      height: 100%;
+      background: rgba(218, 197, 167, 0.15);
+      z-index: -1;
+      transform: translate(-50%, 0%);
+    }
+
+    &:last-child::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: -96px;
+      width: 1px;
+      height: 50%;
+      background: rgba(218, 197, 167, 0.15);
+      z-index: -1;
+      transform: translate(-50%, 0%);
+    }
+
     &.right {
       padding-left: 99.5px;
       padding-right: 0px;
-      // gap: 364px;
-      // .column-process::before {
-      //   right: calc(100% + 99.5px);
-      // }
     }
-    &.left {
-      // justify-content: space-between;
+
+    &:nth-child(even) {
+      align-self: flex-start;
+      padding-right: 99.5px;
+      margin-top: -48px;
+
+      &::before {
+        top: 0;
+        left: unset;
+        right: 0;
+      }
+
+      &:last-child {
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+        }
+      }
+      .column-process::before {
+        left: calc(100% + 99.5px); // відносно лівої половини
+        transform: translate(-50%, -50%);
+      }
+      .column-process::after {
+        left: calc(100% + 99.5px); // відносно лівої половини
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    // Непарні елементи — праворуч
+    &:nth-child(odd) {
+      align-self: flex-end;
+      padding-left: 99.5px;
+      padding-right: 0;
+      &::before {
+        top: 0;
+        left: 0;
+      }
+      &:not(:first-child) {
+        margin-top: -48px;
+        &::before {
+          top: 0;
+          left: 0;
+        }
+      }
+      .column-process::before {
+        left: calc(-99.5px); // мінус, бо йде вліво до центра
+        transform: translate(-50%, -50%);
+      }
+      .column-process::after {
+        left: calc(-99.5px); // відносно лівої половини
+        transform: translate(-50%, -50%);
+      }
     }
   }
-  // &__item:nth-child(odd) {
-  //   padding-left: 99.5px;
-  //   padding-right: 0;
-  //   align-self: flex-end;
-  //   &::before {
-  //     // left: 100%;
-  //     right: auto;
-  //     left: 0px;
-  //     transform: translate(-50%, -50%);
-  //   }
-  //   &::after {
-  //     left: 0;
-  //     right: auto;
-  //   }
-  // }
-
-
-   &__item:nth-child(odd) {
-    padding-left: 99.5px;
-    padding-right: 0;
-    align-self: flex-end;
-    &::before {
-      // left: 100%;
-      right: calc(100% + 99.5px);
-      left: 0px;
-      transform: translate(-50%, -50%);
-    }
-
-  }
-
-  //   right: calc(100% + 99.5px);
-  // -webkit-transform: translate(-50%, -50%);
-  // -ms-transform: translate(-50%,-50%);
-  // transform: translate(50%, -50%);
 
   &__column {
     display: flex;
@@ -164,65 +177,52 @@
     background: rgba(218, 197, 167, 0.05);
     /* blur/default */
     backdrop-filter: blur(15px);
-
-    // position: relative;
   }
-}
-
-.column-process {
-  // &::before {
-  //   content: attr(data-step);
-  //   // counter-increment: item;
-  //   position: absolute;
-  //   top: 50%;
-  //   left: 50%;
-  //   transform: translate(-50%, -50%);
-
-  //   width: 32px;
-  //   height: 32px;
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
-
-  //   font-size: 13px;
-  //   font-family: Satoshi;
-  //   letter-spacing: 1.5px;
-  //   text-transform: uppercase;
-  //   font-weight: 400;
-  //   color: $colorDefault;
-
-  //   border-radius: 50%;
-  //   border: 1px solid rgba(218, 197, 167, 0.15);
-  //   background: rgba(218, 197, 167, 0.05);
-  //   backdrop-filter: blur(15px);
-  //   z-index: 2;
-  // }
-
+  .column-process {
   &::before {
     content: attr(data-step);
     position: absolute;
     top: 50%;
-    left: calc(100% + 99.5px);
+    left: 50%;
     transform: translate(-50%, -50%);
 
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
 
     font-size: 13px;
-    font-family: Satoshi;
+    font-family: Satoshi, sans-serif;
     letter-spacing: 1.5px;
+    line-height: 1.6;
     text-transform: uppercase;
     font-weight: 400;
-    color: $colorDefault;
+    color: #dac5a7;
 
     border-radius: 50%;
     border: 1px solid rgba(218, 197, 167, 0.15);
-    background: rgba(218, 197, 167, 0.05);
+
+    // Тонкий напівпрозорий фон
+    background-color: rgba(24, 23, 21, 0.9);
+
+    // Розмивання заднього фону (як скло)
     backdrop-filter: blur(15px);
+
+    // Впевнимося, що коло перекриває лінію
     z-index: 2;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #0e0e0e;
   }
 
   &__time {
@@ -255,6 +255,9 @@
     line-height: 1.6;
     letter-spacing: 1.5px;
     text-transform: uppercase;
+    &:not(:last-child) {
+      margin-bottom: 4px;
+    }
   }
 
   &__title {
@@ -290,6 +293,16 @@
     padding-left: 20px;
     li {
       list-style: disc !important;
+      p {
+        color: var(--text-default, #dac5a7);
+        /* text/default */
+        font-family: Chillax;
+
+        line-height: 1.8; /* 28.8px */
+      }
     }
   }
 }
+}
+
+
