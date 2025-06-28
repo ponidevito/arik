@@ -1,5 +1,8 @@
 .process {
   padding: 80px 0px;
+  @include lg {
+    padding: 0px 0px 30px 0px;
+  }
   &__head {
     max-width: 710px;
     margin: 0 auto;
@@ -8,6 +11,17 @@
     align-items: center;
     &:not(:last-child) {
       margin-bottom: 112px;
+      @include lg {
+        margin-bottom: 30px;
+      }
+    }
+    @include lg {
+      max-width: 100%;
+    }
+    .arrow-down {
+      @include lg {
+        width: 100%;
+      }
     }
   }
 
@@ -32,10 +46,11 @@
     font-family: Gambetta;
     text-align: center;
 
-    font-size: 128px;
+    // font-size: 128px;
     font-style: italic;
     font-weight: 300;
     line-height: 1;
+    font-size: clamp(40px, 5vw, 128px);
     &:not(:last-child) {
       margin-bottom: 16px;
     }
@@ -54,6 +69,9 @@
     margin: 0 auto;
     &:not(:last-child) {
       margin-bottom: 48px;
+      @include lg {
+        margin-bottom: 25px;
+      }
     }
   }
 
@@ -72,16 +90,27 @@
       background: rgba(218, 197, 167, 0.15);
       z-index: -1;
       transform: translate(-50%, 0%);
+      @include lg {
+        display: none;
+      }
     }
   }
 
   &__item {
-    padding-right: 99.5px;
     display: flex;
     flex-direction: column;
     position: relative;
     flex: 0 1 auto;
     width: 50%;
+    @include lg {
+      flex: 1 1 100%;
+      width: 100%;
+      &:not(:last-child) {
+        .process__column {
+          margin-bottom: 25px;
+        }
+      }
+    }
 
     &:not(:last-child)::before {
       content: "";
@@ -107,20 +136,24 @@
       transform: translate(-50%, 0%);
     }
 
-    &.right {
-      padding-left: 99.5px;
-      padding-right: 0px;
-    }
-
     &:nth-child(even) {
       align-self: flex-start;
       padding-right: 99.5px;
       margin-top: -48px;
-
+      @include lg {
+        align-self: flex-end;
+        margin-top: 0px;
+        padding-left: 60.5px;
+        padding-right: 0;
+      }
       &::before {
         top: 0;
         left: unset;
         right: 0;
+        @include lg {
+          left: 15px;
+          right: unset;
+        }
       }
 
       &:last-child {
@@ -131,12 +164,20 @@
         }
       }
       .column-process::before {
-        left: calc(100% + 99.5px); // відносно лівої половини
+        left: calc(100% + 99.5px);
         transform: translate(-50%, -50%);
+        @include lg {
+          left: calc(-45.5px); // мінус, бо йде вліво до центра
+          transform: translate(-50%, -50%);
+        }
       }
       .column-process::after {
-        left: calc(100% + 99.5px); // відносно лівої половини
+        left: calc(100% + 99.5px);
         transform: translate(-50%, -50%);
+        @include lg {
+          left: calc(-45.5px); // відносно лівої половини
+          transform: translate(-50%, -50%);
+        }
       }
     }
 
@@ -145,24 +186,42 @@
       align-self: flex-end;
       padding-left: 99.5px;
       padding-right: 0;
+      @include lg {
+        padding-left: 60.5px;
+      }
       &::before {
         top: 0;
-        left: 0;
+        left: 0px;
+        @include lg {
+          left: 15px;
+        }
       }
       &:not(:first-child) {
         margin-top: -48px;
+        @include lg {
+          margin-top: 0px;
+        }
         &::before {
           top: 0;
           left: 0;
+          @include lg {
+            left: 15px;
+          }
         }
       }
       .column-process::before {
         left: calc(-99.5px); // мінус, бо йде вліво до центра
         transform: translate(-50%, -50%);
+        @include lg {
+          left: calc(-45.5px); // мінус, бо йде вліво до центра
+        }
       }
       .column-process::after {
         left: calc(-99.5px); // відносно лівої половини
         transform: translate(-50%, -50%);
+        @include lg {
+          left: calc(-45.5px); // мінус, бо йде вліво до центра
+        }
       }
     }
   }
@@ -177,132 +236,151 @@
     background: rgba(218, 197, 167, 0.05);
     /* blur/default */
     backdrop-filter: blur(15px);
+    @include lg {
+      padding: 48px 20px;
+    }
   }
   .column-process {
-  &::before {
-    content: attr(data-step);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 13px;
-    font-family: Satoshi, sans-serif;
-    letter-spacing: 1.5px;
-    line-height: 1.6;
-    text-transform: uppercase;
-    font-weight: 400;
-    color: #dac5a7;
-
-    border-radius: 50%;
-    border: 1px solid rgba(218, 197, 167, 0.15);
-
-    // Тонкий напівпрозорий фон
-    background-color: rgba(24, 23, 21, 0.9);
-
-    // Розмивання заднього фону (як скло)
-    backdrop-filter: blur(15px);
-
-    // Впевнимося, що коло перекриває лінію
-    z-index: 2;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background-color: #0e0e0e;
-  }
-
-  &__time {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    padding: 8px;
-    color: $colorDefault;
-    /* text/meta small */
-    font-family: Chillax;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.2;
-    text-transform: uppercase;
-    border-radius: 2px;
-    border: 1px solid var(--border-default, rgba(218, 197, 167, 0.15));
-    background: var(--background-muted, rgba(218, 197, 167, 0.05));
-    /* blur/default */
-    backdrop-filter: blur(15px);
-  }
-
-  &__above-title {
-    color: $colorSecond;
-    /* text/meta */
-    font-family: Satoshi;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.6;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    &:not(:last-child) {
-      margin-bottom: 4px;
+    @include lg {
     }
-  }
 
-  &__title {
-    color: $colorDefault;
-    /* heading/h4 uppercase */
-    font-family: Satoshi;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: 1.3;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
+    &::before {
+      content: attr(data-step);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
 
-  &__undertitle {
-    color: $colorSecond;
-    /* text/default */
-    font-family: Chillax;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.8;
-    &:not(:last-child) {
-      margin-bottom: 16px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 13px;
+      font-family: Satoshi, sans-serif;
+      letter-spacing: 1.5px;
+      line-height: 1.6;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: #dac5a7;
+
+      border-radius: 50%;
+      border: 1px solid rgba(218, 197, 167, 0.15);
+
+      // Тонкий напівпрозорий фон
+      background-color: rgba(24, 23, 21, 0.9);
+
+      // Розмивання заднього фону (як скло)
+      backdrop-filter: blur(15px);
+
+      // Впевнимося, що коло перекриває лінію
+      z-index: 2;
     }
-  }
 
-  &__list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 32px;
-    padding-left: 20px;
-    li {
-      list-style: disc !important;
-      p {
-        color: var(--text-default, #dac5a7);
-        /* text/default */
-        font-family: Chillax;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background-color: #0e0e0e;
+    }
 
-        line-height: 1.8; /* 28.8px */
+    &__time {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      padding: 8px;
+      color: $colorDefault;
+      /* text/meta small */
+      font-family: Chillax;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.2;
+      text-transform: uppercase;
+      border-radius: 2px;
+      border: 1px solid var(--border-default, rgba(218, 197, 167, 0.15));
+      background: var(--background-muted, rgba(218, 197, 167, 0.05));
+      /* blur/default */
+      backdrop-filter: blur(15px);
+      @include lg {
+        top: 10px;
+      }
+    }
+
+    &__above-title {
+      color: $colorSecond;
+      /* text/meta */
+      font-family: Satoshi;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.6;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      &:not(:last-child) {
+        margin-bottom: 4px;
+      }
+    }
+
+    &__title {
+      color: $colorDefault;
+      /* heading/h4 uppercase */
+      font-family: Satoshi;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 1.3;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    &__undertitle {
+      color: $colorSecond;
+      /* text/default */
+      font-family: Chillax;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.8;
+      @include lg {
+        line-height: 1.4;
+      }
+      &:not(:last-child) {
+        margin-bottom: 16px;
+        @include lg {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 32px;
+      padding-left: 20px;
+      @include lg {
+        margin-top: 15px;
+        gap: 5px;
+      }
+      li {
+        list-style: disc !important;
+        p {
+          color: var(--text-default, #dac5a7);
+          /* text/default */
+          font-family: Chillax;
+          line-height: 1.8;
+          @include lg {
+            line-height: 1.4;
+          }
+        }
       }
     }
   }
 }
-}
-
-
