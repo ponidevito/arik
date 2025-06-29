@@ -39,6 +39,9 @@
     font-weight: 300;
     line-height: 1;
     font-size: clamp(40px, 5vw, 160px);
+    @media (min-width: 1399.98px) {
+      font-size: 160px;
+    }
     span {
       color: var(--text-default, #dac5a7);
       /* heading/xlarge italic */
@@ -47,6 +50,9 @@
       font-weight: 300;
       line-height: 1;
       font-size: clamp(40px, 5vw, 160px);
+      @media (min-width: 1399.98px) {
+        font-size: 160px;
+      }
     }
   }
 
