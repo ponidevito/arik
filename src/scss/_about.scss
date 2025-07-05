@@ -2,9 +2,9 @@
   position: relative;
   overflow: hidden;
   padding-bottom: 116px;
-   @include sm {
-      padding-bottom: 30px;
-    }
+  @include sm {
+    padding-bottom: 30px;
+  }
 
   &__background-text {
     position: absolute;
@@ -57,7 +57,7 @@
   &__item {
     flex: 0 1 50%;
     @include sm {
-       flex: 1 1 100%;
+      flex: 1 1 100%;
     }
   }
 

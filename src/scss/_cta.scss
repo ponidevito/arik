@@ -1,0 +1,56 @@
+.cta {
+  padding: 160px 0px;
+  &__container {
+    max-width: 843px;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__abovetitle {
+    color: $colorDefault;
+    /* text/meta */
+    font-family: Satoshi;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__title {
+    color: $colorDefault;
+    text-align: center;
+    /* heading/large italic */
+    font-family: Satoshi;
+    font-size: 128px;
+    font-weight: 300;
+    line-height: 1;
+    span {
+      font-family: Gambetta;
+      font-style: italic;
+    }
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__undertitle {
+    color: $colorSecond;
+    text-align: center;
+    /* text/large */
+    font-family: Chillax;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.7;
+    max-width: 500px;
+  }
+}
