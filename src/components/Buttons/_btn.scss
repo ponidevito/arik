@@ -9,6 +9,7 @@
   gap: 8px;
   //   text
   font-family: Satoshi;
+  color: $colorDefault;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
@@ -35,6 +36,14 @@
   color: #0e0e0e;
   &:hover {
     background-color: #dfdfdf;
+  }
+  img {
+    transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+  }
+  &.with-arrow {
+    &:hover img {
+      transform: rotate(45deg);
+    }
   }
 }
 

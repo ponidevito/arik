@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   gsap.to(content, {
     x: `-=${itemWidth}`,
-    duration: 30,
+    duration: 35,
     ease: "none",
     repeat: -1,
     modifiers: {
