@@ -7,6 +7,8 @@
 
 // Sections or Pages SCSS-files imports
 @import "./header";
+
+// home
 @import "./home";
 @import "./hero";
 @import "./logos";
@@ -18,11 +20,14 @@
 @import "./talk";
 @import "./cta";
 
-@import './footer';
+// services
+@import "./hero-services";
+@import "./stats";
+
+@import "./footer";
 
 // components
 @import "../components/Buttons/btn";
-
 
 // Libs
 // @import './libs/swiper';
@@ -49,4 +54,14 @@ body {
 .main {
   flex: 1 1 auto;
   position: relative;
+}
+
+.main-pt {
+  padding-top: 224px;
+  @include lg {
+    padding-top: 160px;
+  }
+  @include sm {
+    padding-top: 140px;
+  }
 }

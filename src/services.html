@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arik</title>
+    <link rel="stylesheet" href="./css/style.min.css">
+</head>
+
+<body class="main__body">
+    <div class="wrapper">
+
+    <!-- to top -->
+    <div class="global-top">
+        <div class="global-top__text">To Top</div>
+        <a href="#" class="arrow arrow-up"><img src="./img/arrow-btn/arrow-up.svg" alt="arrow up"></a>
+    </div>
+
+    
+        <!-- Header -->
+    @@include('./html/_header.html')
+    <!-- Main Page -->
+    <main class="main main-pt">
+        <!-- section hero services -->
+    @@include('./html/_hero-services.html')
+
+        <!-- section stats -->
+    @@include('./html/_stats.html')
+        <!-- section talk -->
+    <!-- @@include('./html/_talk.html') -->
+        <!-- section cta -->
+    @@include('./html/_cta.html')
+
+    </main>
+    <!-- Footer -->
+    @@include('./html/_footer.html')
+    </div>
+</body>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="./js/scripts.min.js"></script>
+
+</html>

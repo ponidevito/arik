@@ -1,0 +1,63 @@
+.hero-services {
+  &__container {
+    max-width: 1600px;
+  }
+
+  &__head {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    &:not(:last-child) {
+      margin-bottom: 64px;
+      @include lg {
+        margin-bottom: 30px;
+        max-width: 100%;
+      }
+    }
+  }
+
+  &__title {
+    color: $colorDefault;
+    text-align: center;
+    /* heading/large */
+    font-family: Satoshi;
+    // font-size: 128px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1;
+    font-size: clamp(40px, 5vw, 128px);
+    @media (min-width: 1399.98px) {
+      font-size: 128px;
+    }
+    span {
+      font-family: Gambetta;
+      font-style: italic;
+    }
+  }
+
+  &__undertitle {
+    color: $colorSecond;
+    text-align: center;
+    /* text/xlarge */
+    font-family: Chillax;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.5;
+    font-size: clamp(16px, 5vw, 24px);
+  }
+
+  &__actions {
+    margin-top: 64px;
+    display: flex;
+    justify-content: center;
+    @include lg {
+      margin-top: 30px;
+    }
+  }
+  &__picture {
+    img {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+}

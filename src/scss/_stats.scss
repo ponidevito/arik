@@ -1,0 +1,50 @@
+.stats {
+  padding: 80px 0px;
+  &__container {
+    max-width: 1200px;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 64px;
+    @include md {
+        gap: 30px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__text {
+    color: rgba(218, 197, 167, 0.6);
+    text-align: center;
+    /* text/meta */
+    font-family: Satoshi;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  &__number {
+    color: var(--text-default, #dac5a7);
+    text-align: center;
+    /* heading/h1 uppercase */
+    font-family: Satoshi;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.1;
+    text-transform: uppercase;
+    @include lg {
+      font-size: 40px;
+    }
+  }
+}
