@@ -28,6 +28,10 @@
     font-weight: 300;
     line-height: 1;
     font-size: clamp(40px, 5vw, 96px);
+    span {
+      font-style: italic;
+      font-family: Gambetta;
+    }
     @media (min-width: 1399.98px) {
       font-size: 96px;
     }

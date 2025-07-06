@@ -1,31 +1,80 @@
 // Footer
 .footer {
   padding: 64px 0px;
+  @include sm {
+    padding: 30px 0px;
+  }
   &__container {
     max-width: 1600px;
   }
 }
 .footer-top {
   padding-bottom: 80px;
+  @include lg {
+    padding-bottom: 50px;
+  }
+  @include sm {
+    padding-bottom: 30px;
+  }
   &__row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 64px;
+    @include lg {
+      gap: 30px;
+    }
+    @include md {
+      grid-template-columns: repeat(2, 1fr);
+      .column-1 {
+        order: 3;
+      }
+      .column-2 {
+        order: 4;
+      }
+      .column-3 {
+        order: 1;
+      }
+      .column-4 {
+        order: 2;
+      }
+    }
+    @include xs {
+      grid-template-columns: repeat(1, 1fr);
+      .column-1 {
+        order: 4;
+      }
+      .column-2 {
+        order: 1;
+      }
+      .column-3 {
+        order: 2;
+      }
+      .column-4 {
+        order: 3;
+      }
+    }
   }
 
   &__column {
     display: flex;
     flex-direction: column;
+    gap: 32px;
   }
 
   &__logo {
     margin-bottom: auto;
   }
 
-  &__menu {
-  }
-
   &__label {
+    color: $colorDefault;
+    text-align: justify;
+    /* heading/h5 */
+    font-family: Satoshi;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.4;
+    letter-spacing: 1px;
   }
 }
 .footer-social {
@@ -34,62 +83,6 @@
     flex-direction: column;
     gap: 16px;
   }
-
-  &__item {
-  }
-
-  //   &__link {
-  //     display: inline-flex;
-  //     align-items: center;
-  //     gap: 16px;
-  //     color: $colorSecond;
-  //     text-align: justify;
-  //     /* text/meta */
-  //     font-family: Satoshi;
-  //     font-size: 13px;
-  //     font-style: normal;
-  //     font-weight: 400;
-  //     line-height: 1.6;
-  //     letter-spacing: 1.5px;
-  //     text-transform: uppercase;
-
-  //     .span-text  {
-  //       position: relative;
-  //       transition: 0.5s color;
-  //       &:after {
-  //         position: absolute;
-  //         content: "";
-  //         left: 0;
-  //         bottom: -3px;
-  //         background: $colorDefault;
-  //         height: 1px;
-  //         width: 100%;
-  //         transform: scale(0);
-  //         transition: 0.5s transform;
-  //       }
-  //       &:hover {
-  //         &:after {
-  //           transform: scale(1);
-  //         }
-  //       }
-  //     }
-  //     img {
-  //       border-radius: 50%;
-  //       border: 1px solid rgba(218, 197, 167, 0.15);
-  //       background: rgba(218, 197, 167, 0.05);
-  //       /* blur/default */
-  //       backdrop-filter: blur(15px);
-  //       padding: 12px;
-  //     }
-  //     &:hover span {
-  //       &:after {
-  //         transform: scale(1);
-  //       }
-  //     }
-  //     // &:hover img {
-  //     //   transform: scale(1);
-  //     // }
-  //   }
 
   &__link {
     display: inline-flex;
@@ -152,13 +145,88 @@
 }
 .menu-footer {
   &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
   &__item {
   }
 
   &__link {
+    color: var(--text-muted, rgba(218, 197, 167, 0.6));
+    text-align: justify;
+    /* text/meta */
+    font-family: Satoshi;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline;
+    &:after {
+      position: absolute;
+      content: "";
+      left: 0;
+      bottom: -3px;
+      background: $colorDefault;
+      height: 1px;
+      width: 100%;
+      transform: scale(0);
+      transition: 0.5s transform;
+    }
+    &:hover {
+      &:after {
+        transform: scale(1);
+      }
+    }
+  }
+  &__actions {
+    .with-arrow {
+      padding: 10px 19px;
+    }
   }
 }
+
 .footer-bottom {
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+  }
+
+  &__copy {
+    color: $colorSecond;
+    text-align: justify;
+    /* text/xsmall */
+    font-family: Chillax;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  &__text {
+    color: $colorDefault;
+    text-align: justify;
+    /* text/meta */
+    font-family: Satoshi;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
 }
