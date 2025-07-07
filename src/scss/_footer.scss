@@ -1,5 +1,7 @@
 // Footer
 .footer {
+  background: rgb(218, 197, 167, 0.05);
+
   padding: 64px 0px;
   @include sm {
     padding: 30px 0px;
@@ -209,6 +211,4 @@
     line-height: 1.8;
     letter-spacing: 0.5px;
   }
-
- 
 }
