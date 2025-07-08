@@ -17,7 +17,8 @@
   letter-spacing: 1.5px;
   text-transform: uppercase;
   white-space: nowrap;
-  transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+  // transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+  transition: 0.3s ease;
 }
 
 // btn-default
@@ -38,7 +39,9 @@
     background-color: #dfdfdf;
   }
   img {
-    transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+    // transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+        transition: .3s ease;
+
   }
   &.with-arrow {
     &:hover img {
@@ -88,7 +91,9 @@
     }
 
     img {
-      transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+      // transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+      transition: 0.3s ease;
+
       border-radius: 50%;
       border: 1px solid rgba(218, 197, 167, 0.15);
       background: rgba(218, 197, 167, 0.05);
@@ -122,7 +127,8 @@
   gap: 12px;
   background-color: transparent;
   img {
-    transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+    // transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+    transition: 0.3s ease;
     border-radius: 50%;
     border: 1px solid rgba(218, 197, 167, 0.15);
     background: rgba(218, 197, 167, 0.05);
