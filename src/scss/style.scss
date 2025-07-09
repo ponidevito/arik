@@ -68,4 +68,12 @@ body {
   @include sm {
     padding-top: 140px;
   }
+  &.main-pt-head {
+    @include md {
+      padding-top: 80px;
+    }
+    @include sm {
+      padding-top: 40px;
+    }
+  }
 }

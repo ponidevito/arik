@@ -1,19 +1,46 @@
 .section-about {
-  &__container {
+  padding-bottom: 160px;
+  @include lg {
+    padding-bottomg: 80px;
   }
-
+  @include md {
+    padding-bottom: 50px;
+  }
+  @include sm {
+    padding-bottom: 30px;
+  }
   &__body {
     display: flex;
     gap: 80px;
+    @include lg {
+      gap: 20px;
+    }
+    @include md {
+      flex-direction: column;
+      gap: 0px;
+    }
   }
 
   &__item {
     flex: 0 1 50%;
+    @include md {
+      flex: 1 1 100%;
+    }
   }
   &__picture {
+    @include md {
+      text-align: center;
+    }
     img {
       mix-blend-mode: lighten;
       max-width: 100%;
+      @include md {
+        max-width: 100svw;
+      }
+      @include sm {
+        max-width: 100%;
+        width: 300px;
+      }
     }
   }
 
@@ -22,8 +49,19 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    @include lg {
+      margin-top: 30px;
+    }
+    @include md {
+      align-items: center;
+      margin-top: 0px;
+    }
+
     &:not(:last-child) {
       margin-bottom: 128px;
+      @include lg {
+        margin-bottom: 60px;
+      }
     }
   }
 
@@ -31,10 +69,13 @@
     color: $colorDefault;
     /* heading/large */
     font-family: Satoshi;
-    font-size: 128px;
     font-style: normal;
     font-weight: 300;
     line-height: 1;
+    font-size: clamp(40px, 5vw, 128px);
+    @media (min-width: 998.98px) {
+      font-size: 128px;
+    }
     span {
       color: $colorDefault;
       /* heading/large italic */
@@ -43,6 +84,15 @@
       font-style: italic;
       font-weight: 300;
       line-height: 1;
+      font-size: clamp(40px, 5vw, 128px);
+      @media (min-width: 998.98px) {
+        font-size: 128px;
+      }
+    }
+    .br {
+      @include md {
+        display: none;
+      }
     }
     &:not(:last-child) {
       margin-bottom: 16px;
@@ -63,12 +113,18 @@
     margin-top: 64px;
     display: flex;
     align-items: flex-start;
+    @include lg {
+      margin-top: 30px;
+    }
   }
   .card-about {
     padding: 48px;
     border-radius: 2px;
     border: 1px solid rgba(218, 197, 167, 0.15);
     background: rgba(218, 197, 167, 0.05);
+    @include sm {
+      padding: 20px;
+    }
     &__name {
       color: rgba(218, 197, 167, 0.6);
       /* text/meta */
@@ -92,6 +148,9 @@
       font-style: normal;
       font-weight: 300;
       line-height: 1.1;
+      @include lg {
+        font-size: 35px;
+      }
       &:not(:last-child) {
         margin-bottom: 16px;
       }
@@ -116,7 +175,123 @@
         border-radius: 3px;
         border: 0px solid rgba(218, 197, 167, 0.15);
         background: #040000;
+        @media (max-width: 1399.98px) {
+          max-width: 100%;
+        }
       }
+    }
+  }
+  &__social {
+    margin: 16px 0px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    @include md {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include xs {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  .social-about {
+    &__item {
+      border-radius: 2px;
+      border: 1px solid rgba(218, 197, 167, 0.15);
+      background: rgba(218, 197, 167, 0.05);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: 0.3s ease;
+      img {
+        transition: 0.3s ease;
+      }
+      &:hover .social-about__arrow img {
+        transform: rotate(45deg);
+      }
+      &:hover {
+        background-color: rgba(218, 197, 167, 0.15);
+      }
+    }
+
+    &__name {
+      color: $colorDefault;
+      /* text/meta */
+      font-family: Satoshi;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.6;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    &__arrow {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+  }
+
+  .award-about {
+    padding: 48px;
+    border-radius: 2px;
+    border: 1px solid rgba(218, 197, 167, 0.15);
+    background: rgba(218, 197, 167, 0.05);
+    @include sm {
+      padding: 20px;
+    }
+    &__name {
+      color: rgba(218, 197, 167, 0.6);
+      /* text/meta */
+      font-family: Satoshi;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.6;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      &:not(:first-child) {
+        padding: 24px 0px;
+      }
+      &:not(:last-child) {
+        padding: 24px 0px;
+        border-bottom: 1px solid rgba(218, 197, 167, 0.15);
+      }
+    }
+
+    &__text {
+      color: $colorDefault;
+      /* heading/h5 */
+      font-family: Satoshi;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 1.4;
+      letter-spacing: 1px;
+    }
+
+    &__year {
+      color: $colorDefault;
+      /* text/meta */
+      font-family: Satoshi;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.6;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
     }
   }
 }

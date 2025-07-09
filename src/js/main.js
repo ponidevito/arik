@@ -50,23 +50,23 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // infiniti text
-  const content = document.querySelector(".talk__content");
-  const item = content.querySelector(".talk__item");
+  // const content = document.querySelector(".talk__content");
+  // const item = content.querySelector(".talk__item");
 
-  const clone = item.cloneNode(true);
-  content.appendChild(clone);
+  // const clone = item.cloneNode(true);
+  // content.appendChild(clone);
 
-  const itemWidth = item.offsetWidth;
+  // const itemWidth = item.offsetWidth;
 
-  gsap.to(content, {
-    x: `-=${itemWidth}`,
-    duration: 35,
-    ease: "none",
-    repeat: -1,
-    modifiers: {
-      x: gsap.utils.unitize((x) => parseFloat(x) % itemWidth),
-    },
-  });
+  // gsap.to(content, {
+  //   x: `-=${itemWidth}`,
+  //   duration: 35,
+  //   ease: "none",
+  //   repeat: -1,
+  //   modifiers: {
+  //     x: gsap.utils.unitize((x) => parseFloat(x) % itemWidth),
+  //   },
+  // });
 
   function numCounter(selector, number, time, step, options = {}) {
     const counter = document.querySelector(selector);
