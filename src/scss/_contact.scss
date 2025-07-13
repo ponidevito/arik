@@ -1,0 +1,183 @@
+.contact {
+  padding-bottom: 160px;
+  @include lg {
+    padding-bottom: 100px;
+  }
+  @include md {
+    padding-bottom: 30px;
+  }
+
+  &__body {
+    display: flex;
+    gap: 80px;
+    @include lg {
+      gap: 20px;
+    }
+    @include md {
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    flex: 0 1 50%;
+    @include md {
+      flex: 1 1 100%;
+    }
+  }
+
+  &__picture {
+    @include md {
+      text-align: center;
+    }
+    img {
+      mix-blend-mode: lighten;
+      max-width: 100%;
+      //   @include md {
+      //     max-width: 100svw;
+      //   }
+      @include md {
+        max-width: 100%;
+        width: 300px;
+      }
+    }
+  }
+}
+.form-contact {
+  display: flex;
+  flex-direction: column;
+  padding: 48px;
+  border-radius: 2px;
+  border: 1px solid rgba(218, 197, 167, 0.15);
+  background: rgba(218, 197, 167, 0.05);
+  /* blur/default */
+  backdrop-filter: blur(15px);
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+  @include sm {
+    padding: 20px;
+  }
+  &__head {
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+  }
+  &__abovetitle {
+    color: $colorSecond;
+    /* text/meta */
+    font-family: Satoshi;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__title {
+    color: $colorDefault;
+    /* heading/h2 */
+    font-family: Satoshi;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.1;
+    @include lg {
+      font-size: 35px;
+    }
+  }
+
+  &__input {
+    padding: 16px 24px;
+    border-radius: 2px;
+    border: 1px solid rgba(218, 197, 167, 0.15);
+    background: rgba(218, 197, 167, 0.05);
+    color: $colorDefault;
+    /* text/meta */
+    font-family: Satoshi;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    outline: none;
+    &:focus {
+      border: 1px solid $colorDefault;
+    }
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+    &::placeholder {
+      color: $colorDefault;
+      /* text/meta */
+      font-family: Satoshi;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.6;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+  }
+  .btn-white {
+    cursor: pointer;
+  }
+  .textarea {
+    height: 200px;
+    resize: none;
+    @include lg {
+      height: 120px;
+    }
+  }
+}
+
+//   social
+.social-contact {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  @include xs {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  &__item {
+    border-radius: 2px;
+    border: 1px solid rgba(218, 197, 167, 0.15);
+    background: rgba(218, 197, 167, 0.05);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: 0.3s ease;
+    img {
+      transition: 0.3s ease;
+    }
+    &:hover .social-contact__arrow img {
+      transform: rotate(45deg);
+    }
+    &:hover {
+      background-color: rgba(218, 197, 167, 0.15);
+    }
+  }
+
+  &__name {
+    color: $colorDefault;
+    /* text/meta */
+    font-family: Satoshi;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  &__arrow {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+}
