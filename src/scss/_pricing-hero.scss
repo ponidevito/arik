@@ -1,0 +1,202 @@
+.pricing-hero {
+  padding-bottom: 160px;
+  @include lg {
+    padding-bottom: 100px;
+  }
+  @include md {
+    padding-bottom: 30px;
+  }
+//   head title
+  &__head {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    max-width: 1000px;
+    margin: 0 auto;
+    &:not(:last-child) {
+      margin-bottom: 64px;
+      @include sm {
+        margin-bottom: 30px;
+      }
+    }
+    @include md {
+      gap: 8px;
+      max-width: 100%;
+    }
+  }
+
+  &__abovetitle {
+    color: rgba(218, 197, 167, 0.6);
+    text-align: center;
+    /* text/meta */
+    font-family: Satoshi;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    color: $colorDefault;
+    text-align: center;
+    /* heading/small */
+    font-family: Satoshi;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1;
+    font-size: clamp(35px, 5vw, 80px);
+    @media (min-width: 1399.98px) {
+      font-size: 80px;
+    }
+    span {
+      font-family: Gambetta;
+      font-style: italic;
+      line-height: 1.1;
+    }
+  }
+
+  &__undertitle {
+    max-width: 600px;
+    color: rgba(218, 197, 167, 0.6);
+    text-align: center;
+    /* text/large */
+    font-family: Chillax;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.7;
+    font-size: clamp(16px, 5vw, 20px);
+    @include sm {
+      max-width: 100%;
+    }
+  }
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    @include lg {
+      grid-template-columns: repeat(2, 1fr);
+      & > :last-child {
+        grid-column: 1 / -1;
+      }
+    }
+    @include md {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 15px;
+    }
+  }
+
+  &__column {
+    height: 100%;
+    padding: 48px;
+    border-radius: 2px;
+    border: 1px solid rgba(218, 197, 167, 0.15);
+    background: rgba(218, 197, 167, 0.05);
+    /* blur/default */
+    backdrop-filter: blur(15px);
+    @include sm {
+      padding: 20px;
+    }
+  }
+//   card
+  .column-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    &__label {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      border-radius: 2px;
+      background: $colorDefault;
+      color: #0e0e0e;
+      /* text/meta small */
+      font-family: Chillax;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.2;
+      text-transform: uppercase;
+      padding: 8px;
+    }
+    &__head {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      &:not(:last-child) {
+        margin-bottom: 32px;
+      }
+    }
+
+    &__version {
+      color: $colorDefault;
+      /* text/meta */
+      font-family: Satoshi;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.6;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    &__price {
+      color: $colorDefault;
+      /* heading/h3 */
+      font-family: Satoshi;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 1.2;
+      letter-spacing: 1px;
+    }
+
+    &__text {
+      color: rgba(218, 197, 167, 0.6);
+      /* text/default */
+      font-family: Chillax;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.8;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 32px;
+    }
+
+    &__list-item {
+      color: $colorDefault;
+      /* text/meta */
+      font-family: Satoshi;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.6;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      &:not(:first-child) {
+        padding-top: 16px;
+      }
+      &:not(:last-child) {
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(218, 197, 167, 0.15);
+      }
+    }
+
+    &__action {
+      //   margin-top: 32px;
+      margin-top: auto;
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+}

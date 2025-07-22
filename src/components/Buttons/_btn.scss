@@ -176,3 +176,23 @@
     background-color: rgb(218 197 167 / 15%);
   }
 }
+
+// plus & minus
+
+.plus,
+.minus {
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid rgba(218, 197, 167, 0.15);
+  background: rgba(218, 197, 167, 0.05);
+  backdrop-filter: blur(15px);
+  height: 30px;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+

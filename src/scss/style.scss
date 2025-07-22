@@ -31,12 +31,19 @@
 // contact
 @import "./contact";
 
+// pricing
+@import "./pricing-hero";
+@import "./faq-pricing";
+
 @import "./footer";
 
 // components
 @import "../components/Buttons/btn";
+@import "../components/Accordion/accordion.scss";
 
 // Libs
+
+
 // @import './libs/swiper';
 
 html {
