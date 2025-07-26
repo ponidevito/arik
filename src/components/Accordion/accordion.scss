@@ -47,9 +47,9 @@
       .trigger__img {
         position: relative;
         margin-left: auto;
-
         .minus {
           display: flex;
+          transition: 0.3s ease;
         }
         .plus {
           display: none;

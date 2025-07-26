@@ -1,0 +1,120 @@
+.space {
+  &__head {
+    &:not(:last-child) {
+      margin-bottom: 64px;
+      @include md {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__top {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__title {
+    color: $colorDefault;
+    text-align: center;
+    /* heading/large */
+    font-family: Satoshi;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1;
+    font-size: clamp(40px, 5vw, 128px);
+    @media (min-width: 767.98px) {
+      font-size: 128px;
+    }
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__undertitle {
+    color: rgba(218, 197, 167, 0.6);
+    text-align: center;
+    /* text/xlarge */
+    font-family: Chillax;
+    font-size: clamp(16px, 5vw, 24px);
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  &__row {
+    max-width: 1000px;
+    margin: 48px auto 48px auto;
+    @include md {
+      margin: 20px auto 20px auto;
+    }
+  }
+
+  &__columns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    @include md {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    @include xs {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 15px;
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 16px;
+    border-radius: 2px;
+    border: 1px solid rgba(218, 197, 167, 0.15);
+    background: rgba(218, 197, 167, 0.05);
+    /* blur/default */
+    backdrop-filter: blur(15px);
+  }
+
+  &__column-name {
+    color: $colorDefault;
+    /* text/meta */
+    font-family: Satoshi;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+
+  &__column-description {
+    color: $colorDefault;
+    /* text/meta */
+    font-family: Satoshi;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__picture {
+    img {
+      max-width: 100%;
+      border-radius: 4px;
+      border: 1px solid rgba(218, 197, 167, 0.15);
+      background: #0e0e0e;
+    }
+  }
+}
