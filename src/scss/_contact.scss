@@ -180,4 +180,11 @@
     align-items: center;
     margin-left: auto;
   }
+
+  &.framer-social {
+    grid-template-columns: repeat(3, 1fr);
+    @include md {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
 }

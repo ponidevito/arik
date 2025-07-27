@@ -14,28 +14,7 @@
     }
   }
 
-  &__head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 32px;
-    &:not(:last-child) {
-      margin-bottom: 32px;
-      @include xs {
-        padding: 0px;
-      }
-    }
-  }
-
-  &__title {
-    color: $colorDefault;
-    /* heading/h1 italic */
-    font-family: Gambetta;
-    font-style: italic;
-    font-weight: 300;
-    line-height: 1.1;
-    font-size: clamp(24px, 5vw, 64px);
-  }
+ 
 
   &__body {
     display: grid;

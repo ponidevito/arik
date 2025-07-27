@@ -1,0 +1,130 @@
+.framer {
+  padding-bottom: 80px;
+  @include lg {
+    padding-bottom: 40px;
+  }
+  @include xs {
+    padding-bottom: 30px;
+  }
+  &__head {
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__top {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    &:not(:last-child) {
+      margin-bottom: 48px;
+      @include md {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__title {
+    color: $colorDefault;
+    text-align: center;
+    /* heading/small */
+    font-family: Satoshi;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1;
+    font-size: clamp(40px, 5vw, 80px);
+    @media (min-width: 1199.98px) {
+      font-size: 80px;
+    }
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__undertitle {
+    color: rgba(218, 197, 167, 0.6);
+    text-align: center;
+    /* text/large */
+    font-family: Chillax;
+    font-size: clamp(16px, 5vw, 20px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:not(:last-child) {
+      margin-bottom: 64px;
+      @include md {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    @include md {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  &__column {
+    padding: 32px;
+    border-radius: 2px;
+    border: 1px solid rgba(218, 197, 167, 0.15);
+    background: rgba(218, 197, 167, 0.05);
+    /* blur/default */
+    backdrop-filter: blur(15px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    @include lg {
+      flex-direction: column;
+      justify-content: center;
+    }
+    @include md {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__column-name {
+    color: rgba(218, 197, 167, 0.6);
+    /* text/meta */
+    font-family: Satoshi;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  &__column-description {
+    color: $colorDefault;
+    /* text/meta */
+    font-family: Satoshi;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  &__picture {
+    border-radius: 2px;
+    border: 1px solid rgba(218, 197, 167, 0.15);
+    background: #0e0e0e;
+    img {
+      max-width: 100%;
+    }
+  }
+}
