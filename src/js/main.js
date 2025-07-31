@@ -68,6 +68,30 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 
+  // infiniti text for about section arik andersson text
+  const wrapper = document.querySelector(".ticker__wrapper");
+  const itemsAuthor = wrapper.querySelector(".ticker__item");
+
+  const repeatCount = Math.ceil(window.innerWidth / (itemsAuthor.offsetWidth + 580)) + 2;
+
+  for (let i = 1; i < repeatCount; i++) {
+    const clone = itemsAuthor.cloneNode(true);
+    wrapper.appendChild(clone);
+  }
+
+  const fullWidth = wrapper.offsetWidth;
+
+  gsap.to(wrapper, {
+    x: `-=${itemsAuthor.offsetWidth + 580}`,
+    duration: 15,
+    ease: "none",
+    repeat: -1,
+    modifiers: {
+      x: gsap.utils.unitize(x => parseFloat(x) % (itemsAuthor.offsetWidth + 580)),
+    },
+  });
+  
+
   function numCounter(selector, number, time, step, options = {}) {
     const counter = document.querySelector(selector);
     if (!counter) return;
