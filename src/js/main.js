@@ -70,27 +70,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // infiniti text for about section arik andersson text
    if (window.location.pathname.includes("/index")) {
-  const wrapper = document.querySelector(".ticker__wrapper");
-  const itemsAuthor = wrapper.querySelector(".ticker__item");
+      const wrapper = document.querySelector(".ticker__wrapper");
+      const itemsAuthor = wrapper.querySelector(".ticker__item");
 
-  const repeatCount = Math.ceil(window.innerWidth / (itemsAuthor.offsetWidth + 580)) + 2;
+      const repeatCount = Math.ceil(window.innerWidth / (itemsAuthor.offsetWidth + 580)) + 2;
 
-  for (let i = 1; i < repeatCount; i++) {
-    const clone = itemsAuthor.cloneNode(true);
-    wrapper.appendChild(clone);
-  }
+      for (let i = 1; i < repeatCount; i++) {
+        const clone = itemsAuthor.cloneNode(true);
+        wrapper.appendChild(clone);
+      }
 
-  const fullWidth = wrapper.offsetWidth;
+      const fullWidth = wrapper.offsetWidth;
 
-  gsap.to(wrapper, {
-    x: `-=${itemsAuthor.offsetWidth + 580}`,
-    duration: 15,
-    ease: "none",
-    repeat: -1,
-    modifiers: {
-      x: gsap.utils.unitize(x => parseFloat(x) % (itemsAuthor.offsetWidth + 580)),
-    },
-  });
+      gsap.to(wrapper, {
+        x: `-=${itemsAuthor.offsetWidth + 580}`,
+        duration: 15,
+        ease: "none",
+        repeat: -1,
+        modifiers: {
+          x: gsap.utils.unitize(x => parseFloat(x) % (itemsAuthor.offsetWidth + 580)),
+        },
+      });
    }
 
   
@@ -200,4 +200,185 @@ function accordion() {
 accordion() 
 
 
+// animation
+
+function animateHeroSection() {
+gsap.registerPlugin(ScrollTrigger);
+ const tl = gsap.timeline();
+
+tl.from(".hero__head img", {
+  y: 30,
+  scale: 1.05,
+  filter: "blur(10px)",
+  duration: 1.2,
+  clearProps: "all"
+})
+.from(".header", {
+  opacity: 0,
+  duration: 1,
+  ease: "power3.out"
+}, "-=0.4") // трохи пізніше, щоб йшла після картинки
+.from(".hero__title", {
+  y: 50,
+  opacity: 0,
+  duration: 1
+}, "-=0.6")
+.from(".hero__undertitle", {
+  y: 50,
+  opacity: 0,
+  duration: 1
+}, "-=0.7");
+
+
+gsap.fromTo(".logos__item",
+  {
+    opacity: 0,
+    y: 50,
+  },
+  {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    stagger: 0.1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".logos",
+      start: "top 80%",
+      end: "bottom top",
+      toggleActions: "play reverse play reverse",
+      // markers: true 
+    }
+  }
+);
+
+gsap.fromTo(".services__column",
+  {
+    opacity: 0,
+    y: 50,
+  },
+  {
+    opacity: 1,
+    y: 0,
+    duration: 0.9,
+    stagger: 0.1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".services",
+      start: "top 60%",
+      end: "bottom top",
+      toggleActions: "play reverse play reverse",
+    }
+  }
+);
+
+// Заголовок і кнопка "See all"
+gsap.from(".global-line__head", {
+  opacity: 0,
+  y: 40,
+  duration: 1,
+  ease: "power3.out",
+  scrollTrigger: {
+    trigger: ".work",
+    start: "top 80%",
+    end: "bottom top",
+    toggleActions: "play reverse play reverse"
+  }
+});
+
+gsap.from(".work__column:nth-child(-n+2)", {
+  opacity: 0,
+  y: 50,
+  scale: 0.95,
+  duration: 0.8,
+  ease: "power2.out",
+  stagger: 0.15,
+  scrollTrigger: {
+    trigger: ".work__body",
+    start: "top 75%",
+    toggleActions: "play reverse play reverse",
+
+  }
+});
+
+gsap.from(".work__column:nth-child(n+3)", {
+  opacity: 0,
+  y: 50,
+  scale: 0.95,
+  duration: 0.8,
+  ease: "power2.out",
+  stagger: 0.15,
+  scrollTrigger: {
+    trigger: ".work__column:nth-child(n+3)",
+    start: "top 95%",
+    toggleActions: "play reverse play reverse",
+
+  }
+});
+
+gsap.from(".process__abovetitle", {
+  opacity: 0,
+  y: 50,
+  scale: 0.95,
+  duration: 0.8,
+  ease: "power2.out",
+  stagger: 0.15,
+  scrollTrigger: {
+    trigger: ".process",
+    start: "top 80%", // Пізніше спрацьовування
+    toggleActions: "play reverse play reverse",
+
+  }
+});
+
+gsap.from(".process__title", {
+  opacity: 0,
+  y: 50,
+  scale: 0.95,
+  duration: 0.8,
+  ease: "power2.out",
+  stagger: 0.15,
+  scrollTrigger: {
+    trigger: ".process__abovetitle",
+    start: "top 80%", // Пізніше спрацьовування
+    toggleActions: "play reverse play reverse",
+  }
+});
+
+gsap.from(".process__undertitle", {
+  opacity: 0,
+  y: 50,
+  scale: 0.95,
+  duration: 0.8,
+  ease: "power2.out",
+  stagger: 0.15,
+  scrollTrigger: {
+    trigger: ".process__title",
+    start: "top 60%", // Пізніше спрацьовування
+    toggleActions: "play reverse play reverse",
+  }
+});
+
+
+document.querySelectorAll('.column-process').forEach((column) => {
+  gsap.fromTo(column,
+    {
+      opacity: 0,
+    },
+    {
+      opacity: 1,
+      duration: 0.8,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: column,
+        start: "top 80%", // коли кружечок по центру в'юпорта
+        toggleActions: "play reverse play reverse",
+        markers: true // Увімкни true для дебагу
+      }
+    }
+  );
+});
+
+}
+
+animateHeroSection();
 
