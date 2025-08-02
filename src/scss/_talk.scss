@@ -7,17 +7,17 @@
     background: rgba(218, 197, 167, 0.1);
     padding: 16px 0px;
     width: 100%;
+    white-space: nowrap;
   }
   &__content {
-    display: flex;
-    width: max-content;
+    display: inline-flex;
+    will-change: transform;
   }
 
   &__item {
     display: flex;
     gap: 32px;
     flex-shrink: 0;
-    width: max-content;
   }
 
   &__text {

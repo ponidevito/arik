@@ -76,6 +76,7 @@
         color: #0e0e0e;
         display: block;
         padding: 12px;
+        white-space: nowrap;
         @include sm {
           font-size: 22px;
         }
