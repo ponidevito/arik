@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // infiniti text for about section arik andersson text
+   if (window.location.pathname.includes("/index")) {
   const wrapper = document.querySelector(".ticker__wrapper");
   const itemsAuthor = wrapper.querySelector(".ticker__item");
 
@@ -90,6 +91,8 @@ document.addEventListener("DOMContentLoaded", function () {
       x: gsap.utils.unitize(x => parseFloat(x) % (itemsAuthor.offsetWidth + 580)),
     },
   });
+   }
+
   
 
   function numCounter(selector, number, time, step, options = {}) {

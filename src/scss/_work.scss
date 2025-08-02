@@ -14,8 +14,6 @@
     }
   }
 
- 
-
   &__body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -58,6 +56,14 @@
       left: 16px;
       right: 16px;
       bottom: 16px;
+    }
+    transition: 0.3s ease;
+
+    &:hover {
+      .work__name,
+      .work__service {
+        color: $colorHoverLinkTitle;
+      }
     }
   }
 

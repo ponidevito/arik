@@ -75,7 +75,6 @@
         flex: 1 1 100%;
       }
     }
-
   }
   .card {
     padding: 48px;
@@ -107,6 +106,10 @@
       }
       @include sm {
         font-size: 22px;
+      }
+      transition: 0.3s ease;
+      &:hover {
+        color: $colorHoverLinkTitle;
       }
     }
 
