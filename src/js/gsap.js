@@ -1,10 +1,10 @@
 // animation
+
 document.addEventListener("DOMContentLoaded", function () {
   const mediaQuery = window.matchMedia("(min-width: 768px)");
-  function animateHeroSection() {
+  function animateHomePage() {
     gsap.registerPlugin(ScrollTrigger);
     const tl = gsap.timeline();
-
     tl.from(".hero__head img", {
       y: 30,
       scale: 1.05,
@@ -277,8 +277,161 @@ document.addEventListener("DOMContentLoaded", function () {
       clearProps: "all",
     });
   }
-  
+
+  function animateServicesPage() {
+    const tl = gsap.timeline();
+
+    tl.from(".hero-services__title", {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+    })
+      .from(
+        ".hero-services__undertitle",
+        {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+        },
+        "-=0.7"
+      )
+      .from(
+        ".hero-services__actions",
+        {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+        },
+        "-=0.8"
+      );
+  }
+
+  function animateWorkPage() {
+    const tl = gsap.timeline();
+
+    tl.from(".latest-work__title", {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+    })
+      .from(
+        ".latest-work__undertitle",
+        {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+        },
+        "-=0.7"
+      )
+      .from(
+        ".work__body",
+        {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+        },
+        "-=0.4"
+      );
+  }
+
+  function animateAboutPage() {
+    const tl = gsap.timeline();
+    tl.from(".section-about__picture img", {
+      y: 30,
+      scale: 1.05,
+      filter: "blur(10px)",
+      duration: 1.2,
+      clearProps: "all",
+    })
+      .from(
+        ".section-about__title",
+        {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+        },
+        "-=0.6"
+      )
+      .from(
+        ".section-about__undertitle",
+        {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+        },
+        "-=0.7"
+      )
+      .from(
+        ".section-about__actions",
+        {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+        },
+        "-=0.8"
+      );
+    gsap.fromTo(
+      ".section-about__card",
+      {
+        opacity: 0,
+        y: 50,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".section-about__card",
+          start: "top 80%",
+          end: "bottom top",
+          toggleActions: "play none",
+        },
+      }
+    );
+  }
+
+  function animateBlogPage() {
+    const tl = gsap.timeline();
+    tl.from(".blog-hero__title", {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+    })
+      .from(
+        ".blog-hero__undertitle",
+        {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+        },
+        "-=0.7"
+      )
+      .from(
+        ".blog-hero__row",
+        {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+        },
+        "-=0.4"
+      );
+  }
+
   if (window.location.pathname.includes("/index") && mediaQuery.matches) {
-    animateHeroSection();
+    animateHomePage();
+  }
+  if (window.location.pathname.includes("/services") && mediaQuery.matches) {
+    animateServicesPage();
+  }
+  if (window.location.pathname.includes("/work-page") && mediaQuery.matches) {
+    animateWorkPage();
+  }
+  if (window.location.pathname.includes("/about") && mediaQuery.matches) {
+    animateAboutPage();
+  }
+  if (window.location.pathname.includes("blog") && mediaQuery.matches) {
+    animateBlogPage();
   }
 });
