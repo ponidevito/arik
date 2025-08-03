@@ -1,5 +1,6 @@
 // animation
 document.addEventListener("DOMContentLoaded", function () {
+  const mediaQuery = window.matchMedia("(min-width: 768px)");
   function animateHeroSection() {
     gsap.registerPlugin(ScrollTrigger);
     const tl = gsap.timeline();
@@ -277,7 +278,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
   
-  if (window.location.pathname.includes("/index")) {
+  if (window.location.pathname.includes("/index") && mediaQuery.matches) {
     animateHeroSection();
   }
 });

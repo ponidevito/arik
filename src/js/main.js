@@ -1,4 +1,4 @@
-// Мобильное меню бургер
+// burger
 function burgerMenu() {
   const burger = document.querySelector(".burger");
   const menu = document.querySelector(".menu");
@@ -14,7 +14,6 @@ function burgerMenu() {
       body.classList.remove("locked");
     }
   });
-  // Вот тут мы ставим брейкпоинт навбара
   window.addEventListener("resize", () => {
     if (window.innerWidth > 991.98) {
       menu.classList.remove("active");
@@ -36,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Перемикання submenu
     submenu.classList.toggle("active");
-    submenuLink.classList.toggle("active"); // додаємо клас до лінку для анімації
+    submenuLink.classList.toggle("active");
   });
 
   document.addEventListener("click", function (e) {
@@ -45,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
       !e.target.closest(".submenu")
     ) {
       submenu.classList.remove("active");
-      submenuLink.classList.remove("active"); // знімаємо обертання
+      submenuLink.classList.remove("active"); 
     }
   });
 
@@ -204,3 +203,4 @@ function accordion() {
   });
 }
 accordion();
+
