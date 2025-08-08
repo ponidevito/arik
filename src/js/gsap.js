@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
           trigger: ".logos",
           start: "top 80%",
           end: "bottom top",
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none none",
         },
       }
     );
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
           trigger: ".services",
           start: "top 60%",
           end: "bottom top",
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none none",
         },
       }
     );
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
         trigger: ".work",
         start: "top 80%",
         end: "bottom top",
-        toggleActions: "play reverse play reverse",
+        toggleActions: "play none none none",
       },
     });
 
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
       scrollTrigger: {
         trigger: ".work__body",
         start: "top 75%",
-        toggleActions: "play reverse play reverse",
+        toggleActions: "play none none none",
       },
     });
 
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
       scrollTrigger: {
         trigger: ".work__column:nth-child(n+3)",
         start: "top 95%",
-        toggleActions: "play reverse play reverse",
+        toggleActions: "play none none none",
       },
     });
 
@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
       scrollTrigger: {
         trigger: ".process",
         start: "top 80%",
-        toggleActions: "play reverse play reverse",
+        toggleActions: "play none none none",
       },
     });
 
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
       scrollTrigger: {
         trigger: ".process__abovetitle",
         start: "top 80%",
-        toggleActions: "play reverse play reverse",
+        toggleActions: "play none none none",
       },
     });
 
@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
       scrollTrigger: {
         trigger: ".process__title",
         start: "top 60%",
-        toggleActions: "play reverse play reverse",
+        toggleActions: "play none none none",
       },
     });
 
@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function () {
           scrollTrigger: {
             trigger: column,
             start: "top 80%",
-            toggleActions: "play reverse play reverse",
+            toggleActions: "play none none none",
           },
         }
       );
@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
       scrollTrigger: {
         trigger: ".testimonials",
         start: "top 60%",
-        toggleActions: "play reverse play reverse",
+        toggleActions: "play none none none",
       },
     });
 
@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", function () {
       scrollTrigger: {
         trigger: ".testimonials__title",
         start: "top 60%",
-        toggleActions: "play reverse play reverse",
+        toggleActions: "play none none none",
       },
     });
 
@@ -233,7 +233,7 @@ document.addEventListener("DOMContentLoaded", function () {
             scrollTrigger: {
               trigger: card,
               start: "top 75%",
-              toggleActions: "play reverse play reverse",
+              toggleActions: "play none none none",
             },
           }
         );
@@ -249,7 +249,7 @@ document.addEventListener("DOMContentLoaded", function () {
       scrollTrigger: {
         trigger: ".about",
         start: "top 40%",
-        toggleActions: "play reverse play reverse",
+        toggleActions: "play none none none",
       },
     });
 
@@ -260,7 +260,7 @@ document.addEventListener("DOMContentLoaded", function () {
       scrollTrigger: {
         trigger: ".about__body",
         start: "top 80%",
-        toggleActions: "play reverse play reverse",
+        toggleActions: "play none none none",
       },
       clearProps: "all",
     });
@@ -272,7 +272,7 @@ document.addEventListener("DOMContentLoaded", function () {
       scrollTrigger: {
         trigger: ".about__body",
         start: "top 80%",
-        toggleActions: "play reverse play reverse",
+        toggleActions: "play none none none",
       },
       clearProps: "all",
     });
@@ -303,6 +303,15 @@ document.addEventListener("DOMContentLoaded", function () {
           duration: 1,
         },
         "-=0.8"
+      )
+      .from(
+        ".hero-services__picture",
+        {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+        },
+        "-=0.4"
       );
   }
 
@@ -413,9 +422,135 @@ document.addEventListener("DOMContentLoaded", function () {
         {
           y: 50,
           opacity: 0,
-          duration: 1,
+          duration: 0.9,
         },
         "-=0.4"
+      );
+  }
+
+  function animatePricingPage() {
+    const tl = gsap.timeline();
+    tl.from(".pricing-hero__abovetitle", {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+    })
+      .from(
+        ".pricing-hero__title",
+        {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+        },
+        "-=0.7"
+      )
+      .from(
+        ".pricing-hero__undertitle",
+        {
+          y: 50,
+          opacity: 0,
+          duration: 0.9,
+        },
+        "-=0.4"
+      )
+      .from(
+        ".pricing-hero__row",
+        {
+          y: 50,
+          opacity: 0,
+          duration: 0.9,
+        },
+        "-=0.4"
+      );
+  }
+
+  function animateSpacePage() {
+    const tl = gsap.timeline();
+    tl.from(".space__title", {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+    })
+      .from(
+        ".space__undertitle",
+        {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+        },
+        "-=0.7"
+      )
+      .from(
+        ".space__row",
+        {
+          y: 50,
+          opacity: 0,
+          duration: 0.9,
+        },
+        "-=0.4"
+      )
+      .from(
+        ".space__actions",
+        {
+          y: 50,
+          opacity: 0,
+          duration: 0.8,
+        },
+        "-=0.4"
+      )
+      .from(
+        ".space__picture",
+        {
+          y: 50,
+          opacity: 0,
+          duration: 0.8,
+        },
+        "-=0.4"
+      );
+  }
+
+  function animateFramerPage() {
+    const tl = gsap.timeline();
+    tl.from(".framer__title", {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+    })
+      .from(
+        ".framer__undertitle",
+        {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+        },
+        "-=0.7"
+      )
+      .from(
+        ".framer__actions",
+        {
+          y: 50,
+          opacity: 0,
+          duration: 0.9,
+        },
+        "-=0.4"
+      )
+      .from(
+        ".framer__row",
+        {
+          y: 50,
+          opacity: 0,
+          duration: 0.9,
+        },
+        "-=0.3"
+      )
+      .from(
+        ".framer__picture",
+        {
+          y: 50,
+          opacity: 0,
+          duration: 0.9,
+        },
+        "-=0.3"
       );
   }
 
@@ -431,7 +566,19 @@ document.addEventListener("DOMContentLoaded", function () {
   if (window.location.pathname.includes("/about") && mediaQuery.matches) {
     animateAboutPage();
   }
-  if (window.location.pathname.includes("blog") && mediaQuery.matches) {
+  if (window.location.pathname.includes("/blog") && mediaQuery.matches) {
     animateBlogPage();
+  }
+  if (window.location.pathname.includes("/pricing") && mediaQuery.matches) {
+    animatePricingPage();
+  }
+  if (window.location.pathname.includes("/space") && mediaQuery.matches) {
+    animateSpacePage();
+  }
+  if (
+    window.location.pathname.includes("/framer-website") &&
+    mediaQuery.matches
+  ) {
+    animateFramerPage();
   }
 });
