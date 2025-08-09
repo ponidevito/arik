@@ -133,6 +133,16 @@
     display: flex;
     position: relative;
     transition: 0.5s color;
+    &.active {
+      &:after {
+        transform: scale(1);
+        left: 0;
+        bottom: -3px;
+        height: 1px;
+        width: 100%;
+        transition: none;
+      }
+    }
     @include sm {
       font-size: 25px;
     }

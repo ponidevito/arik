@@ -44,35 +44,36 @@ document.addEventListener("DOMContentLoaded", function () {
       !e.target.closest(".submenu")
     ) {
       submenu.classList.remove("active");
-      submenuLink.classList.remove("active"); 
+      submenuLink.classList.remove("active");
     }
   });
 
   // infiniti text
-const content = document.querySelector(".talk__content");
-const items = content.querySelectorAll(".talk__item");
+  const content = document.querySelector(".talk__content");
 
-const cloneCount = items.length;
-items.forEach(item => {
-  const clone = item.cloneNode(true);
-  content.appendChild(clone);
-});
+  if (content) {
+    const items = content.querySelectorAll(".talk__item");
+    const cloneCount = items.length;
 
-gsap.set(".talk__item", {
-  xPercent: i => i * 100
-});
+    items.forEach((item) => {
+      const clone = item.cloneNode(true);
+      content.appendChild(clone);
+    });
 
-gsap.to(".talk__item", {
-  xPercent: "-=100",
-  duration: 40,
-  ease: "none",
-  repeat: -1,
-  modifiers: {
-    xPercent: gsap.utils.wrap(-100 * cloneCount, 0)
+    gsap.set(".talk__item", {
+      xPercent: (i) => i * 100,
+    });
+
+    gsap.to(".talk__item", {
+      xPercent: "-=100",
+      duration: 40,
+      ease: "none",
+      repeat: -1,
+      modifiers: {
+        xPercent: gsap.utils.wrap(-100 * cloneCount, 0),
+      },
+    });
   }
-});
-
-
 
   // infiniti text for about section arik andersson text
   if (window.location.pathname.includes("/index")) {
@@ -160,47 +161,58 @@ gsap.to(".talk__item", {
   document.querySelectorAll(".section-3").forEach((section) => {
     observer.observe(section);
   });
-});
 
-const topButton = document.querySelector(".global-top");
+  const topButton = document.querySelector(".global-top");
 
-// Показати/приховати кнопку при скролі
-window.addEventListener("scroll", () => {
-  const scrollTop = window.scrollY || document.documentElement.scrollTop;
-  const quarterPage = document.documentElement.scrollHeight / 4;
+  // Показати/приховати кнопку при скролі
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const quarterPage = document.documentElement.scrollHeight / 4;
 
-  if (scrollTop > quarterPage) {
-    topButton.classList.add("visible");
-  } else {
-    topButton.classList.remove("visible");
-  }
-});
-
-// Скрол до верху при кліку
-topButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
+    if (scrollTop > quarterPage) {
+      topButton.classList.add("visible");
+    } else {
+      topButton.classList.remove("visible");
+    }
   });
-});
 
-// Accordion
-function accordion() {
-  const items = document.querySelectorAll(".accordion__item-trigger");
-  items.forEach((item) => {
-    item.addEventListener("click", () => {
-      const parent = item.parentNode;
-      if (parent.classList.contains("accordion__item-active")) {
-        parent.classList.remove("accordion__item-active");
-      } else {
-        document
-          .querySelectorAll(".accordion__item")
-          .forEach((child) => child.classList.remove("accordion__item-active"));
-        parent.classList.add("accordion__item-active");
-      }
+  // Скрол до верху при кліку
+  topButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
     });
   });
-}
-accordion();
 
+  // Accordion
+  function accordion() {
+    const items = document.querySelectorAll(".accordion__item-trigger");
+    items.forEach((item) => {
+      item.addEventListener("click", () => {
+        const parent = item.parentNode;
+        if (parent.classList.contains("accordion__item-active")) {
+          parent.classList.remove("accordion__item-active");
+        } else {
+          document
+            .querySelectorAll(".accordion__item")
+            .forEach((child) =>
+              child.classList.remove("accordion__item-active")
+            );
+          parent.classList.add("accordion__item-active");
+        }
+      });
+    });
+  }
+  accordion();
+
+  const currentPage = window.location.pathname.split("/").pop();
+  const menuLinks = document.querySelectorAll(".menu__item-link");
+
+  menuLinks.forEach(link => {
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("active");
+    }
+  });
+
+});

@@ -140,6 +140,27 @@
     line-height: 1.6;
     letter-spacing: 1.5px;
     text-transform: uppercase;
+    &:hover img {
+      background-color: rgb(218 197 167 / 15%);
+    }
+    span {
+      position: relative;
+      display: inline-block;
+    }
+    span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 1px;
+      width: 0;
+      background-color: currentColor; /* або конкретний колір, напр. #000 */
+      transition: width 0.3s ease;
+    }
+
+    &:hover span::after {
+      width: 100%;
+    }
   }
 }
 
@@ -194,5 +215,3 @@
   justify-content: center;
   align-items: center;
 }
-
-

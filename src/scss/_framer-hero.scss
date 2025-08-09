@@ -1,11 +1,11 @@
 .framer {
-  padding-bottom: 80px;
-  @include lg {
-    padding-bottom: 40px;
-  }
-  @include xs {
-    padding-bottom: 30px;
-  }
+  // padding-bottom: 80px;
+  // @include lg {
+  //   padding-bottom: 40px;
+  // }
+  // @include xs {
+  //   padding-bottom: 30px;
+  // }
   &__head {
     &:not(:last-child) {
       margin-bottom: 16px;

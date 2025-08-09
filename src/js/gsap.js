@@ -1,7 +1,19 @@
 // animation
-
 document.addEventListener("DOMContentLoaded", function () {
   const mediaQuery = window.matchMedia("(min-width: 768px)");
+
+ if (typeof gsap === "undefined") {
+    console.error("GSAP не знайдено. Підключи gsap.min.js перед цим скриптом.");
+    return;
+  }
+  const hasScrollTrigger = typeof ScrollTrigger !== "undefined";
+  if (hasScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+  } else {
+    console.warn("ScrollTrigger не підключено.");
+  }
+
+  
   function animateHomePage() {
     gsap.registerPlugin(ScrollTrigger);
     const tl = gsap.timeline();
@@ -554,31 +566,34 @@ document.addEventListener("DOMContentLoaded", function () {
       );
   }
 
-  if (window.location.pathname.includes("/index") && mediaQuery.matches) {
-    animateHomePage();
+  const path = window.location.pathname;
+
+  if (mediaQuery.matches && hasScrollTrigger) {
+    if (path === "/" || path.includes("/index")) {
+      animateHomePage();
+    }
+    if (path.includes("/services")) {
+      animateServicesPage();
+    }
+    if (path.includes("/work-page")) {
+      animateWorkPage();
+    }
+    if (path.includes("/about")) {
+      animateAboutPage();
+    }
+    if (path.includes("/blog")) {
+      animateBlogPage();
+    }
+    if (path.includes("/pricing")) {
+      animatePricingPage();
+    }
+    if (path.includes("/space")) {
+      animateSpacePage();
+    }
+    if (path.includes("/framer-website")) {
+      animateFramerPage();
+    }
+    ScrollTrigger.refresh();
   }
-  if (window.location.pathname.includes("/services") && mediaQuery.matches) {
-    animateServicesPage();
-  }
-  if (window.location.pathname.includes("/work-page") && mediaQuery.matches) {
-    animateWorkPage();
-  }
-  if (window.location.pathname.includes("/about") && mediaQuery.matches) {
-    animateAboutPage();
-  }
-  if (window.location.pathname.includes("/blog") && mediaQuery.matches) {
-    animateBlogPage();
-  }
-  if (window.location.pathname.includes("/pricing") && mediaQuery.matches) {
-    animatePricingPage();
-  }
-  if (window.location.pathname.includes("/space") && mediaQuery.matches) {
-    animateSpacePage();
-  }
-  if (
-    window.location.pathname.includes("/framer-website") &&
-    mediaQuery.matches
-  ) {
-    animateFramerPage();
-  }
+  
 });

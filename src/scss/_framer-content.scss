@@ -1,5 +1,11 @@
 .framer-content {
-  
+    padding-top: 80px;
+  @include lg {
+    padding-top: 40px;
+  }
+  @include xs {
+     padding-top: 30px;
+  }
   &__container {
     max-width: 1000px;
     margin: 0 auto;
