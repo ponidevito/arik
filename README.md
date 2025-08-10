@@ -23,6 +23,7 @@
 
 📁 Структура проєкту
 
+```bash
 arik-portfolio/
 ├── index.html
 ├── services.html
