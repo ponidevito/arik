@@ -13,17 +13,17 @@
 
 ⚙️ Технології
 
-✅ HTML5 — семантична та доступна розмітка
+✅ HTML5
 
-✅ CSS3 / SCSS — кастомні стилі, адаптивність, змінні
+✅ CSS3 / SCSS
 
-✅ JavaScript (ES6+) — інтерактивність, логіка анімацій
+✅ JavaScript (ES6+)
 
-✅ GSAP + ScrollTrigger — плавні та сучасні анімації
+✅ GSAP + ScrollTrigger
 
-✅ Responsive Design — оптимізовано для мобільних і планшетів
+✅ Responsive Design
 
-✅ GitHub Pages — хостинг і деплой проєкту
+✅ GitHub Pages
 
 ---
 
