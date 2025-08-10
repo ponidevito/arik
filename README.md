@@ -1,2 +1,3 @@
 # arik
-Landing page portfolio arik
+
+[Переглянути сайт](https://ponidevito.github.io/arik-portfolio/)
